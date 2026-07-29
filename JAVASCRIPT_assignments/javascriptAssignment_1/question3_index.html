@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Second Lowest and Second Greatest</title>
+</head>
+<body>
+
+<script>
+    // Creating array
+    // Take array input from the user
+    let input = prompt("Enter array elements separated by commas:");
+
+    // Convert the input string into an array of numbers
+    let arr = input.split(",").map(Number);
+
+    // Sort the array in ascending order, javascript uses a,b and performs a-b --> 
+    // if result positive then places the second number first else places the first number 
+    // in case of ascending
+    arr.sort(function(a, b) {
+        return a - b;
+    });
+
+    // Store values in variables
+    let secondLowest = arr[1];
+    let secondGreatest = arr[arr.length - 2];
+
+    // Display the results
+    document.write("Second Lowest: " + secondLowest + "<br>");
+    document.write("Second Greatest: " + secondGreatest);
+</script>
+
+</body>
+</html>
