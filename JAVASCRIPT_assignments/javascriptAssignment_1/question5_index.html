@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Get Form Values</title>
+
+<script>
+function getFormvalue() {
+
+    // Prevent the form from submitting
+    event.preventDefault();
+
+    // Get the values from the form
+    let firstName = document.getElementsByName("fname")[0].value;
+    let lastName = document.getElementsByName("lname")[0].value;
+
+    // Display the values
+    alert("First Name: " + firstName);
+    alert("Last Name: " + lastName);
+
+    // You can also use:
+    // document.write("First Name: " + firstName + "<br>");
+    // document.write("Last Name: " + lastName);
+}
+</script>
+
+</head>
+
+<body>
+
+<form id="form1" onsubmit="getFormvalue()">
+
+First name:
+<input type="text" name="fname" value="David"><br><br>
+
+Last name:
+<input type="text" name="lname" value="Beckham"><br><br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>
