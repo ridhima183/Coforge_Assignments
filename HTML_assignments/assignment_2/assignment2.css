@@ -1,0 +1,233 @@
+/* Page background: solid color + subtle texture (progressive enhancement) */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               sans-serif;
+  color: #143641;
+  background-color: #63c2da;               /* solid color for older browsers */
+  background-image: url("images/texture.png"); /* light texture overlay */
+  background-repeat: repeat;
+}
+
+.page {
+  width: 100%;
+}
+
+/* Header / title card */
+.title {
+  background-color: rgb(72, 191, 220);
+  width: 1600px;
+  max-width: 95%;
+  margin: 1.5rem auto 0;
+  border-radius: 0.7rem;
+  border: 2px solid rgba(23, 66, 74, 0.18);
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.12);
+}
+
+.site-header {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Brand area */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  border-radius: 200%;
+  object-fit: cover;
+}
+
+/* Non‑standard font with fallback (progressive enhancement) */
+.brand-name {
+  font-family: "Pacifico", "Trebuchet MS", Arial, sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+}
+
+/* Navigation tabs */
+.main-nav ul {
+  list-style: none;
+  margin: 10px;
+  padding: 0;
+  display: flex;
+  gap: 0.35rem;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.main-nav li {
+  position: relative;
+}
+
+/* Base tab style (rounded top + arrow) */
+.main-nav a {
+  display: block;
+  position: relative;
+  min-width: 8rem;
+  padding: 1rem 1.25rem 0.9rem;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: #fffaf3;
+  background-color: #f2451a;          /* solid fallback color */
+  border: 1px solid #c91010;
+  border-bottom: none;
+  border-radius: 0.95rem 0.95rem 0 0;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.2) inset;
+  transition: all 0.5s ease;          /* .5s animated pop‑up */
+  overflow: visible;
+}
+
+/* Small arrow on top of each tab */
+.main-nav a::before {
+  content: "";
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 0.55rem solid transparent;
+  border-right: 0.55rem solid transparent;
+  border-bottom: 0.55rem solid #f28b1a;
+  transition: opacity 0.15s linear, visibility 0.15s linear;
+}
+
+/* Hover / focus: background image + gradient + taller tab */
+.main-nav a:hover,
+.main-nav a:focus {
+  background-color: #ffffff;
+  background-image:
+    url("images/nav-texture.png"),                 /* decorative image */
+    linear-gradient(to bottom, #ffffff 0%, #fff3e1 100%); /* CSS3 gradient */
+  background-repeat: repeat, no-repeat;
+  background-size: auto, cover;
+  color: #c96f10;
+  height: 4.1rem;                                  /* pop‑up effect */
+  outline: none;
+}
+
+/* Remove arrow on hover/focus */
+.main-nav a:hover::before,
+.main-nav a:focus::before {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Active tab (optional) */
+.main-nav a.active {
+  background-color: #ff7b32;
+  color: #ffffff;
+}
+
+/* Main content card */
+.content-card {
+  background-color: aliceblue;
+  width: 1600px;
+  max-width: 95%;
+  margin: 1rem auto 0;
+  border: 2px solid rgba(23, 66, 74, 0.18);
+  border-radius: 0.7rem;
+  padding: 1rem;
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.12);
+}
+
+/* Hero image */
+.hero {
+  margin-bottom: 1rem;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.65rem;
+}
+
+/* Typography for content */
+.welcome h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.6rem;
+}
+
+.welcome p {
+  margin: 0 0 0.8rem;
+  line-height: 1.6;
+}
+
+/* Info grid */
+.info-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.info-box {
+  flex: 1 1 18rem;
+  padding: 0.5rem 0.5rem 0.25rem;
+}
+
+.info-box h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.info-box ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.info-box li {
+  margin-bottom: 0.45rem;
+  line-height: 1.4;
+}
+
+.info-box a {
+  color: #c97a18;
+}
+
+.info-box a:hover,
+.info-box a:focus {
+  color: #145a66;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 0.9rem 0 0.25rem;
+  font-size: 0.92rem;
+  color: #25545e;
+}
+
+.site-footer p {
+  margin: 0.25rem 0;
+}
+
+/* Basic responsiveness / accessibility */
+@media (max-width: 700px) {
+  .title,
+  .content-card {
+    width: min(95vw, 1100px);
+    margin: 0.75rem auto;
+  }
+
+  .main-nav a {
+    min-width: 7.5rem;
+    font-size: 0.95rem;
+  }
+
+  .brand {
+    flex-direction: column;
+  }
+}
