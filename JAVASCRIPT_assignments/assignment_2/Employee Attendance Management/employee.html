@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Attendance</title>
+  <link rel="stylesheet" href="employee.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Employee Attendance Management</h1>
+
+    <form id="attendanceForm">
+      <label for="empId">Employee ID</label>
+      <input type="text" id="empId" name="empId" required>
+
+      <label for="empName">Employee Name</label>
+      <input type="text" id="empName" name="empName" required>
+
+      <div class="buttons">
+        <button type="button" id="checkInBtn">Check In</button>
+        <button type="button" id="checkOutBtn">Check Out</button>
+      </div>
+    </form>
+
+    <div class="status-panel">
+      <p><strong>Status:</strong> <span id="statusText">Not Marked</span></p>
+      <p><strong>Date &amp; Time:</strong> <span id="dateTimeText">--</span></p>
+    </div>
+  </div>
+
+  <script>
+    const checkInBtn = document.getElementById('checkInBtn');
+    const checkOutBtn = document.getElementById('checkOutBtn');
+    const statusText = document.getElementById('statusText');
+    const dateTimeText = document.getElementById('dateTimeText');
+    const empIdInput = document.getElementById('empId');
+    const empNameInput = document.getElementById('empName');
+
+    function updateDateTime() {
+      const now = new Date();
+      // localized date & time string
+      dateTimeText.textContent = now.toLocaleString();
+    }
+
+    function markStatus(status) {
+      if (!empIdInput.value.trim() || !empNameInput.value.trim()) {
+        alert('Please enter Employee ID and Name first.');
+        return;
+      }
+
+      updateDateTime();
+      statusText.textContent = status;
+
+      if (status === 'Checked In') {
+        statusText.className = 'status checked-in';
+      } else if (status === 'Checked Out') {
+        statusText.className = 'status checked-out';
+      } else {
+        statusText.className = 'status';
+      }
+    }
+
+    // Use addEventListener for both buttons
+    checkInBtn.addEventListener('click', function () {
+      markStatus('Checked In');
+    });
+
+    checkOutBtn.addEventListener('click', function () {
+      markStatus('Checked Out');
+    });
+  </script>
+</body>
+</html>

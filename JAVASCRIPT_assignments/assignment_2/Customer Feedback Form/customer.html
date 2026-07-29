@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Feedback</title>
+  <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+  <div class="page">
+    <h1>Customer Feedback Form</h1>
+
+    <section class="form-section">
+      <form id="feedbackForm">
+        <!-- Name -->
+        <label for="name">Customer Name</label>
+        <input type="text" id="name" required>
+
+        <!-- Email -->
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+
+        <!-- Rating -->
+        <label for="rating">Rating (1–5)</label>
+        <select id="rating" required>
+          <option value="">Select rating</option>
+          <option value="1">1 - Very Poor</option>
+          <option value="2">2 - Poor</option>
+          <option value="3">3 - Average</option>
+          <option value="4">4 - Good</option>
+          <option value="5">5 - Excellent</option>
+        </select>
+
+        <!-- Suggestions -->
+        <label for="suggestions">Suggestions</label>
+        <textarea id="suggestions" rows="3" placeholder="Share your thoughts..."></textarea>
+
+        <!-- Department -->
+        <label for="department">Department</label>
+        <select id="department" required>
+          <option value="">Choose department</option>
+          <option value="Sales">Sales</option>
+          <option value="Support">Support</option>
+          <option value="Billing">Billing</option>
+          <option value="Technical">Technical</option>
+        </select>
+
+        <!-- Subscribe -->
+        <label class="inline">
+          <input type="checkbox" id="subscribe">
+          Subscribe to updates
+        </label>
+
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </section>
+
+    <section class="table-section">
+      <h2>Submitted Feedback</h2>
+      <table id="feedbackTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Rating</th>
+            <th>Suggestions</th>
+            <th>Department</th>
+            <th>Subscribed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be added here via JS -->
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script>
+    const form = document.getElementById('feedbackForm');
+    const tableBody = document.querySelector('#feedbackTable tbody');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // prevent page refresh
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const rating = document.getElementById('rating').value;
+      const suggestions = document.getElementById('suggestions').value.trim();
+      const department = document.getElementById('department').value;
+      const subscribe = document.getElementById('subscribe').checked ? 'Yes' : 'No';
+
+      if (!name || !email || !rating || !department) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      // Create a new row and cells
+      const row = document.createElement('tr');
+
+      const cells = [
+        name,
+        email,
+        rating,
+        suggestions || '—',
+        department,
+        subscribe
+      ];
+
+      cells.forEach(text => {
+        const td = document.createElement('td');
+        td.textContent = text;
+        row.appendChild(td);
+      });
+
+      // Append row to table body
+      tableBody.appendChild(row);
+
+      // Reset form for next entry
+      form.reset();
+    });
+  </script>
+</body>
+</html>
