@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="imagegallery.css">
+</head>
+<body>
+  <div class="page">
+    <h1>Image Gallery</h1>
+
+    <!-- Preview area -->
+    <section class="preview">
+      <img id="previewImage" src="images/image1.jpg" alt="Preview">
+      <div id="previewTitle" class="preview-title">Image 1</div>
+    </section>
+
+    <!-- Thumbnail grid -->
+    <section class="gallery">
+      <div class="thumb" data-title="Image 1">
+        <img src="images/image2.jpg" alt="Image 1">
+        <span class="thumb-title">Image 1</span>
+      </div>
+
+      <div class="thumb" data-title="Image 2">
+        <img src="images/image3.jpg" alt="Image 2">
+        <span class="thumb-title">Image 2</span>
+      </div>
+
+      <div class="thumb" data-title="Image 3">
+        <img src="images/image4.jpg" alt="Image 3">
+        <span class="thumb-title">Image 3</span>
+      </div>
+
+      <div class="thumb" data-title="Image 4">
+        <img src="images/image5.jpg" alt="Image 4">
+        <span class="thumb-title">Image 4</span>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const thumbs = document.querySelectorAll('.thumb');
+    const previewImage = document.getElementById('previewImage');
+    const previewTitle = document.getElementById('previewTitle');
+
+    thumbs.forEach(thumb => {
+      const img = thumb.querySelector('img');
+      const title = thumb.dataset.title;
+      const titleSpan = thumb.querySelector('.thumb-title');
+
+      // Show title and enlarge on hover
+      thumb.addEventListener('mouseenter', function () {
+        titleSpan.style.opacity = '1';
+        titleSpan.style.transform = 'translateY(0)';
+        img.style.transform = 'scale(1.1)';
+      });
+
+      // Restore size and hide title on mouse leave
+      thumb.addEventListener('mouseleave', function () {
+        titleSpan.style.opacity = '0';
+        titleSpan.style.transform = 'translateY(10px)';
+        img.style.transform = 'scale(1)';
+      });
+
+      // Click: show in preview
+      thumb.addEventListener('click', function () {
+        previewImage.src = img.src;
+        previewImage.alt = title;
+        previewTitle.textContent = title;
+      });
+    });
+  </script>
+</body>
+</html>

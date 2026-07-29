@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="student.css">
+</head>
+<body>
+  <div class="form-wrapper">
+    <h1>Student Registration</h1>
+
+    <form id="registrationForm">
+      <!-- Name -->
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name">
+      <small class="error" id="nameError"></small>
+
+      <!-- Email -->
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email">
+      <small class="error" id="emailError"></small>
+
+      <!-- Mobile -->
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" id="mobile" name="mobile" maxlength="10">
+      <small class="error" id="mobileError"></small>
+
+      <!-- Password -->
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+      <small class="error" id="passwordError"></small>
+
+      <!-- Confirm Password -->
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" name="confirmPassword">
+      <small class="error" id="confirmPasswordError"></small>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+
+    form.addEventListener('submit', function (event) {
+      // clear previous errors
+      document.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+      let isValid = true;
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const mobile = document.getElementById('mobile').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      // Name validation: not empty
+      if (name === '') {
+        document.getElementById('nameError').textContent = 'Name is required.';
+        isValid = false;
+      }
+
+      // Email validation: simple pattern
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        document.getElementById('emailError').textContent = 'Enter a valid email address.';
+        isValid = false;
+      }
+
+      // Mobile validation: exactly 10 digits
+      const mobilePattern = /^\d{10}$/;
+      if (!mobilePattern.test(mobile)) {
+        document.getElementById('mobileError').textContent = 'Mobile number must be exactly 10 digits.';
+        isValid = false;
+      }
+
+      // Password validation: at least 8 characters
+      if (password.length < 8) {
+        document.getElementById('passwordError').textContent = 'Password must be at least 8 characters.';
+        isValid = false;
+      }
+
+      // Confirm password: must match
+      if (confirmPassword !== password) {
+        document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+        isValid = false;
+      }
+
+      // Prevent submit if any validation fails
+      if (!isValid) {
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>

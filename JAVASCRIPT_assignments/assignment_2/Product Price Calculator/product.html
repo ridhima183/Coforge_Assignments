@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Price Calculator</title>
+  <link rel="stylesheet" href="product.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Product Price Calculator</h1>
+
+    <form id="priceForm">
+      <!-- Product name -->
+      <label for="productName">Product Name</label>
+      <input type="text" id="productName" name="productName">
+
+      <!-- Quantity -->
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="1">
+
+      <!-- Price per unit -->
+      <label for="price">Price (₹)</label>
+      <input type="number" id="price" name="price" min="0" step="0.01">
+
+      <button type="button" id="calcBtn">Calculate</button>
+    </form>
+
+    <div class="result-panel">
+      <h2>Bill Details</h2>
+      <p><strong>Subtotal:</strong> ₹<span id="subtotal">0.00</span></p>
+      <p><strong>GST (18%):</strong> ₹<span id="gst">0.00</span></p>
+      <p><strong>Discount:</strong> ₹<span id="discount">0.00</span></p>
+      <p><strong>Final Amount:</strong> ₹<span id="finalAmount">0.00</span></p>
+    </div>
+  </div>
+
+  <script>
+    const calcBtn = document.getElementById('calcBtn');
+
+    calcBtn.addEventListener('click', function () {
+      const qty = parseFloat(document.getElementById('quantity').value) || 0;
+      const price = parseFloat(document.getElementById('price').value) || 0;
+
+      // Subtotal = quantity * price
+      const subtotal = qty * price;
+
+      // GST at 18% of subtotal
+      const gstRate = 0.18;
+      const gstAmount = subtotal * gstRate;
+
+      // Total before discount = subtotal + GST
+      const totalBeforeDiscount = subtotal + gstAmount;
+
+      // Discount: 10% if total exceeds ₹5000
+      let discountAmount = 0;
+      if (totalBeforeDiscount > 5000) {
+        discountAmount = totalBeforeDiscount * 0.10;
+      }
+
+      // Final amount = totalBeforeDiscount - discount
+      const finalAmount = totalBeforeDiscount - discountAmount;
+
+      // Update display (rounded to 2 decimals)
+      document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+      document.getElementById('gst').textContent = gstAmount.toFixed(2);
+      document.getElementById('discount').textContent = discountAmount.toFixed(2);
+      document.getElementById('finalAmount').textContent = finalAmount.toFixed(2);
+    });
+  </script>
+</body>
+</html>

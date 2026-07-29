@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="shoppingcart.css">
+</head>
+<body>
+  <div class="page">
+    <h1>Shopping Cart</h1>
+
+    <!-- Add product form -->
+    <section class="form-section">
+      <form id="addProductForm">
+        <label for="productName">Product Name</label>
+        <input type="text" id="productName" required>
+
+        <label for="productPrice">Price (₹)</label>
+        <input type="number" id="productPrice" min="0" step="0.01" required>
+
+        <button type="submit">Add Product</button>
+      </form>
+    </section>
+
+    <!-- Cart table -->
+    <section class="cart-section">
+      <table id="cartTable">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price (₹)</th>
+            <th>Quantity</th>
+            <th>Subtotal (₹)</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be added here -->
+        </tbody>
+      </table>
+
+      <div class="summary">
+        <p><strong>Total Items:</strong> <span id="totalItems">0</span></p>
+        <p><strong>Grand Total:</strong> ₹<span id="grandTotal">0.00</span></p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const addProductForm = document.getElementById('addProductForm');
+    const cartTableBody = document.querySelector('#cartTable tbody');
+    const totalItemsSpan = document.getElementById('totalItems');
+    const grandTotalSpan = document.getElementById('grandTotal');
+
+    // Add product to cart
+    addProductForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById('productName').value.trim();
+      const priceValue = document.getElementById('productPrice').value;
+
+      const price = parseFloat(priceValue);
+
+      if (!name || isNaN(price)) {
+        alert('Please enter valid product details.');
+        return;
+      }
+
+      // Create row
+      const row = document.createElement('tr');
+
+      // Product name
+      const nameCell = document.createElement('td');
+      nameCell.textContent = name;
+      row.appendChild(nameCell);
+
+      // Price
+      const priceCell = document.createElement('td');
+      priceCell.textContent = price.toFixed(2);
+      row.appendChild(priceCell);
+
+      // Quantity cell with buttons
+      const qtyCell = document.createElement('td');
+      const decreaseBtn = document.createElement('button');
+      decreaseBtn.textContent = '-';
+      decreaseBtn.className = 'qty-btn';
+
+      const qtySpan = document.createElement('span');
+      qtySpan.textContent = '1';
+      qtySpan.className = 'qty-value';
+
+      const increaseBtn = document.createElement('button');
+      increaseBtn.textContent = '+';
+      increaseBtn.className = 'qty-btn';
+
+      qtyCell.appendChild(decreaseBtn);
+      qtyCell.appendChild(qtySpan);
+      qtyCell.appendChild(increaseBtn);
+      row.appendChild(qtyCell);
+
+      // Subtotal
+      const subtotalCell = document.createElement('td');
+      subtotalCell.textContent = price.toFixed(2);
+      subtotalCell.className = 'subtotal';
+      row.appendChild(subtotalCell);
+
+      // Actions (Remove)
+      const actionsCell = document.createElement('td');
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'Remove';
+      removeBtn.className = 'remove-btn';
+      actionsCell.appendChild(removeBtn);
+      row.appendChild(actionsCell);
+
+      // Attach event listeners
+      increaseBtn.addEventListener('click', function () {
+        let qty = parseInt(qtySpan.textContent, 10);
+        qty++;
+        qtySpan.textContent = qty;
+        updateRowSubtotal(row);
+        updateSummary();
+      });
+
+      decreaseBtn.addEventListener('click', function () {
+        let qty = parseInt(qtySpan.textContent, 10);
+        if (qty > 1) {
+          qty--;
+          qtySpan.textContent = qty;
+          updateRowSubtotal(row);
+          updateSummary();
+        }
+      });
+
+      removeBtn.addEventListener('click', function () {
+        cartTableBody.removeChild(row);
+        updateSummary();
+      });
+
+      // Add row to table
+      cartTableBody.appendChild(row);
+
+      // Reset form
+      addProductForm.reset();
+
+      // Update totals
+      updateSummary();
+    });
+
+    // Update subtotal for a row
+    function updateRowSubtotal(row) {
+      const price = parseFloat(row.children[1].textContent);
+      const qty = parseInt(row.querySelector('.qty-value').textContent, 10);
+      const subtotalCell = row.querySelector('.subtotal');
+      const subtotal = price * qty;
+      subtotalCell.textContent = subtotal.toFixed(2);
+    }
+
+    // Recalculate total items and grand total
+    function updateSummary() {
+      let totalItems = 0;
+      let grandTotal = 0;
+
+      const rows = cartTableBody.querySelectorAll('tr');
+
+      rows.forEach(row => {
+        const qty = parseInt(row.querySelector('.qty-value').textContent, 10);
+        const subtotal = parseFloat(row.querySelector('.subtotal').textContent);
+        totalItems += qty;
+        grandTotal += subtotal;
+      });
+
+      totalItemsSpan.textContent = totalItems;
+      grandTotalSpan.textContent = grandTotal.toFixed(2);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Salary Calculator</title>
+  <link rel="stylesheet" href="salary.css">
+</head>
+<body>
+  <div class="page">
+    <h1>Employee Salary Calculator</h1>
+
+    <!-- Input form -->
+    <section class="card">
+      <form id="salaryForm">
+        <label for="empName">Employee Name</label>
+        <input type="text" id="empName" required>
+
+        <label for="basicSalary">Basic Salary (₹)</label>
+        <!-- text input so we can clean commas / symbols -->
+        <input type="text" id="basicSalary" required placeholder="e.g. 70000">
+
+        <button type="submit" class="calc-btn">Calculate Salary</button>
+      </form>
+    </section>
+
+    <!-- Salary slip -->
+    <section id="slipCard" class="card slip-card" style="display:none;">
+      <h2>Salary Slip</h2>
+
+      <div class="slip-header">
+        <span id="slipEmpName"></span>
+        <span id="slipMonth">Month: —</span>
+      </div>
+
+      <div class="slip-grid">
+        <div class="slip-section">
+          <h3>Earnings</h3>
+          <div class="row">
+            <span>Basic Salary</span>
+            <span id="basicOut"></span>
+          </div>
+          <div class="row">
+            <span>HRA (20%)</span>
+            <span id="hraOut"></span>
+          </div>
+          <div class="row">
+            <span>DA (15%)</span>
+            <span id="daOut"></span>
+          </div>
+          <div class="row total">
+            <span>Gross Salary</span>
+            <span id="grossOut"></span>
+          </div>
+        </div>
+
+        <div class="slip-section">
+          <h3>Deductions</h3>
+          <div class="row">
+            <span>PF (12%)</span>
+            <span id="pfOut"></span>
+          </div>
+          <div class="row">
+            <span>Professional Tax</span>
+            <span id="ptOut"></span>
+          </div>
+          <div class="row total">
+            <span>Total Deductions</span>
+            <span id="deductionOut"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="net-row">
+        <span>Net Salary</span>
+        <span id="netOut"></span>
+      </div>
+    </section>
+
+    <script>
+      const salaryForm = document.getElementById('salaryForm');
+      const slipCard = document.getElementById('slipCard');
+
+      const empNameOut = document.getElementById('slipEmpName');
+      const slipMonth = document.getElementById('slipMonth');
+
+      const basicOut = document.getElementById('basicOut');
+      const hraOut = document.getElementById('hraOut');
+      const daOut = document.getElementById('daOut');
+      const grossOut = document.getElementById('grossOut');
+
+      const pfOut = document.getElementById('pfOut');
+      const ptOut = document.getElementById('ptOut');
+      const deductionOut = document.getElementById('deductionOut');
+
+      const netOut = document.getElementById('netOut');
+
+      salaryForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById('empName').value.trim();
+        const basicRaw = document.getElementById('basicSalary').value;
+
+        // remove everything except digits and decimal point
+        const cleaned = basicRaw.replace(/[^0-9.]/g, '');
+        const basic = parseFloat(cleaned);
+
+        if (!name || isNaN(basic)) {
+          alert('Please enter a valid employee name and basic salary (numbers only).');
+          return;
+        }
+
+        const HRA_RATE = 0.20;
+        const DA_RATE = 0.15;
+        const PF_RATE = 0.12;
+        const PROFESSIONAL_TAX = 200;
+
+        // Earnings
+        const hra = basic * HRA_RATE;
+        const da = basic * DA_RATE;
+        const gross = basic + hra + da;
+
+        // Deductions
+        const pf = basic * PF_RATE;
+        const pt = PROFESSIONAL_TAX;
+        const totalDeduction = pf + pt;
+
+        // Net salary
+        const net = gross - totalDeduction;
+
+        // Fill slip
+        empNameOut.textContent = 'Employee: ' + name;
+
+        const now = new Date();
+        const monthLabel = now.toLocaleString('default', { month: 'long', year: 'numeric' });
+        slipMonth.textContent = 'Month: ' + monthLabel;
+
+        basicOut.textContent = '₹' + basic.toFixed(2);
+        hraOut.textContent = '₹' + hra.toFixed(2);
+        daOut.textContent = '₹' + da.toFixed(2);
+        grossOut.textContent = '₹' + gross.toFixed(2);
+
+        pfOut.textContent = '₹' + pf.toFixed(2);
+        ptOut.textContent = '₹' + pt.toFixed(2);
+        deductionOut.textContent = '₹' + totalDeduction.toFixed(2);
+
+        netOut.textContent = '₹' + net.toFixed(2);
+
+        slipCard.style.display = 'block';
+      });
+    </script>
+  </div>
+</body>
+</html>

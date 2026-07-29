@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register & Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="pageTitle">User Registration</h1>
+
+    <!-- Registration Form -->
+    <form id="registerForm">
+      <label for="regUsername">Username</label>
+      <input type="text" id="regUsername" required>
+
+      <label for="regPassword">Password</label>
+      <input type="password" id="regPassword" required>
+
+      <label class="show-password">
+        <input type="checkbox" id="regTogglePassword">
+        Show Password
+      </label>
+
+      <button type="submit">Register</button>
+      <p id="registerMessage"></p>
+
+      <p class="switch-link">
+        Already registered?
+        <button type="button" id="goToLogin">Go to Login</button>
+      </p>
+    </form>
+
+    <!-- Login Form -->
+    <form id="loginForm" style="display: none;">
+      <label for="loginUsername">Username</label>
+      <input type="text" id="loginUsername" required>
+
+      <label for="loginPassword">Password</label>
+      <input type="password" id="loginPassword" required>
+
+      <label class="show-password">
+        <input type="checkbox" id="loginTogglePassword">
+        Show Password
+      </label>
+
+      <button type="submit">Login</button>
+      <p id="loginMessage"></p>
+
+      <p class="switch-link">
+        Need an account?
+        <button type="button" id="goToRegister">Go to Registration</button>
+      </p>
+    </form>
+  </div>
+
+  <script>
+    // "database" in memory for demo
+    let storedUsername = "";
+    let storedPassword = "";
+
+    const pageTitle = document.getElementById("pageTitle");
+
+    const registerForm = document.getElementById("registerForm");
+    const regUsername = document.getElementById("regUsername");
+    const regPassword = document.getElementById("regPassword");
+    const regTogglePassword = document.getElementById("regTogglePassword");
+    const registerMessage = document.getElementById("registerMessage");
+
+    const loginForm = document.getElementById("loginForm");
+    const loginUsername = document.getElementById("loginUsername");
+    const loginPassword = document.getElementById("loginPassword");
+    const loginTogglePassword = document.getElementById("loginTogglePassword");
+    const loginMessage = document.getElementById("loginMessage");
+
+    const goToLoginBtn = document.getElementById("goToLogin");
+    const goToRegisterBtn = document.getElementById("goToRegister");
+
+    // Toggle password visibility (registration)
+    regTogglePassword.addEventListener("change", function () {
+      regPassword.type = this.checked ? "text" : "password";
+    });
+
+    // Toggle password visibility (login)
+    loginTogglePassword.addEventListener("change", function () {
+      loginPassword.type = this.checked ? "text" : "password";
+    });
+
+    // Registration submit
+    registerForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const username = regUsername.value.trim();
+      const password = regPassword.value;
+
+      if (username === "" || password === "") {
+        registerMessage.textContent = "Please fill in all fields.";
+        registerMessage.className = "error";
+        return;
+      }
+
+      // Store credentials in memory
+      storedUsername = username;
+      storedPassword = password;
+
+      registerMessage.textContent = "Registration successful. You can now log in.";
+      registerMessage.className = "success";
+
+      // Optionally pre-fill login form
+      loginUsername.value = storedUsername;
+    });
+
+    // Go to Login view
+    goToLoginBtn.addEventListener("click", function () {
+      registerForm.style.display = "none";
+      loginForm.style.display = "flex";
+      pageTitle.textContent = "User Login";
+      loginMessage.textContent = "";
+    });
+
+    // Go back to Registration view
+    goToRegisterBtn.addEventListener("click", function () {
+      loginForm.style.display = "none";
+      registerForm.style.display = "flex";
+      pageTitle.textContent = "User Registration";
+      registerMessage.textContent = "";
+    });
+
+    // Login submit (works with Enter key)
+    loginForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const username = loginUsername.value.trim();
+      const password = loginPassword.value;
+
+      if (username === storedUsername && password === storedPassword) {
+        loginMessage.textContent = "Welcome, " + username + "!";
+        loginMessage.className = "success";
+      } else {
+        loginMessage.textContent = "Invalid username or password.";
+        loginMessage.className = "error";
+      }
+    });
+  </script>
+</body>
+</html>

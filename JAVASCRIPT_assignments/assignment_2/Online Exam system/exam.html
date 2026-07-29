@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Exam System</title>
+  <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+  <div class="page">
+    <h1>Online Exam</h1>
+
+    <form id="examForm" class="card">
+      <!-- Q1 -->
+      <div class="question">
+        <p>1. HTML stands for:</p>
+        <label><input type="radio" name="q1" value="A"> HyperText Markup Language</label>
+        <label><input type="radio" name="q1" value="B"> HighText Machine Language</label>
+        <label><input type="radio" name="q1" value="C"> Hyperlinks Text Management Language</label>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question">
+        <p>2. Which tag is used to create a line break in HTML?</p>
+        <label><input type="radio" name="q2" value="A"> &lt;p&gt;</label>
+        <label><input type="radio" name="q2" value="B"> &lt;br&gt;</label>
+        <label><input type="radio" name="q2" value="C"> &lt;hr&gt;</label>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question">
+        <p>3. Which CSS property controls text color?</p>
+        <label><input type="radio" name="q3" value="A"> font-style</label>
+        <label><input type="radio" name="q3" value="B"> color</label>
+        <label><input type="radio" name="q3" value="C"> background-color</label>
+      </div>
+
+      <!-- Q4 -->
+      <div class="question">
+        <p>4. Which HTML element is used to link an external CSS file?</p>
+        <label><input type="radio" name="q4" value="A"> &lt;style&gt;</label>
+        <label><input type="radio" name="q4" value="B"> &lt;script&gt;</label>
+        <label><input type="radio" name="q4" value="C"> &lt;link&gt;</label>
+      </div>
+
+      <!-- Q5 -->
+      <div class="question">
+        <p>5. Which attribute is used in &lt;img&gt; to specify the image source?</p>
+        <label><input type="radio" name="q5" value="A"> href</label>
+        <label><input type="radio" name="q5" value="B"> src</label>
+        <label><input type="radio" name="q5" value="C"> alt</label>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Exam</button>
+    </form>
+
+    <div id="resultCard" class="card result-card" style="display:none;">
+      <h2>Result</h2>
+      <div class="result-grid">
+        <div class="stat">
+          <span class="label">Correct Answers</span>
+          <span id="correctCount" class="value"></span>
+        </div>
+        <div class="stat">
+          <span class="label">Wrong Answers</span>
+          <span id="wrongCount" class="value"></span>
+        </div>
+        <div class="stat">
+          <span class="label">Percentage</span>
+          <span id="percentage" class="value"></span>
+        </div>
+        <div class="stat">
+          <span class="label">Status</span>
+          <span id="status" class="value status-pill"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const examForm = document.getElementById('examForm');
+    const resultCard = document.getElementById('resultCard');
+    const correctSpan = document.getElementById('correctCount');
+    const wrongSpan = document.getElementById('wrongCount');
+    const percentageSpan = document.getElementById('percentage');
+    const statusSpan = document.getElementById('status');
+
+    // Answer key
+    const answerKey = {
+      q1: 'A',
+      q2: 'B',
+      q3: 'B',
+      q4: 'C',
+      q5: 'B'
+    };
+
+    const totalQuestions = 5;
+    const passPercentage = 60; // pass threshold
+
+    examForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      let correct = 0;
+
+      // Loop through questions
+      for (let q in answerKey) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answerKey[q]) {
+          correct++;
+        }
+      }
+
+      const wrong = totalQuestions - correct;
+      const percentage = (correct / totalQuestions) * 100;
+
+      correctSpan.textContent = correct;
+      wrongSpan.textContent = wrong;
+      percentageSpan.textContent = percentage.toFixed(2) + '%';
+
+      // Pass / Fail
+      if (percentage >= passPercentage) {
+        statusSpan.textContent = 'Pass';
+        statusSpan.classList.remove('fail');
+        statusSpan.classList.add('pass');
+      } else {
+        statusSpan.textContent = 'Fail';
+        statusSpan.classList.remove('pass');
+        statusSpan.classList.add('fail');
+      }
+
+      resultCard.style.display = 'block';
+    });
+  </script>
+</body>
+</html>

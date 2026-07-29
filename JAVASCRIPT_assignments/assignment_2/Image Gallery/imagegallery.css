@@ -1,0 +1,96 @@
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #e3f2fd 0, #f5f5f5 60%);
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+.page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 16px 24px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Preview area */
+.preview {
+  max-width: 600px;
+  margin: 0 auto 24px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  background-color: #000;
+}
+
+.preview img {
+  width: 100%;
+  display: block;
+}
+
+.preview-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 12px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: #ffffff;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+/* Gallery grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.thumb {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #000;
+}
+
+.thumb img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Title overlay on thumbnail */
+.thumb-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  color: #ffffff;
+  text-align: center;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Responsive layout */
+@media (max-width: 700px) {
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .thumb img {
+    height: 120px;
+  }
+}
