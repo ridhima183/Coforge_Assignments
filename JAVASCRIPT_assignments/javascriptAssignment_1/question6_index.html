@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Form Data in Table</title>
+
+    <script>
+        function getFormValue() {
+
+            event.preventDefault();
+
+            let firstName = document.getElementById("fname").value;
+            let lastName = document.getElementById("lname").value;
+
+            // Get the table
+            let table = document.getElementById("myTable");
+
+            // Create a new row
+            let row = table.insertRow(-1);
+
+            // Create two cells
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+
+            // Put the values in the cells
+            cell1.innerHTML = firstName;
+            cell2.innerHTML = lastName;
+
+            // Clear the text boxes
+            document.getElementById("fname").value = "";
+            document.getElementById("lname").value = "";
+        }
+    </script>
+</head>
+
+<body>
+
+<form onsubmit="getFormValue()">
+
+First Name:
+<input type="text" id="fname"><br><br>
+
+Last Name:
+<input type="text" id="lname"><br><br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+<br>
+
+<table border="1" id="myTable">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+</table>
+
+</body>
+</html>
