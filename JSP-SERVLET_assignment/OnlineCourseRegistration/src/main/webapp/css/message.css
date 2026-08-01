@@ -1,0 +1,285 @@
+/* ==========================================================
+                SUCCESS & ERROR PAGE
+========================================================== */
+
+.message-page{
+
+    min-height:calc(100vh - 80px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    background:#F8FAFC;
+
+}
+
+/* ==========================================================
+                    CARD
+========================================================== */
+
+.message-card{
+
+    width:100%;
+
+    max-width:550px;
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:50px;
+
+    text-align:center;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+
+    animation:fadeUp .5s ease;
+
+}
+
+/* ==========================================================
+                    ICON
+========================================================== */
+
+.message-icon{
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:48px;
+
+    margin:0 auto 30px;
+
+}
+
+/* Success */
+
+.success-icon{
+
+    background:#DCFCE7;
+
+    color:#16A34A;
+
+}
+
+/* Error */
+
+.error-icon{
+
+    background:#FEE2E2;
+
+    color:#DC2626;
+
+}
+
+/* Warning */
+
+.warning-icon{
+
+    background:#FEF3C7;
+
+    color:#D97706;
+
+}
+
+/* ==========================================================
+                    TITLE
+========================================================== */
+
+.message-title{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#1E293B;
+
+    margin-bottom:15px;
+
+}
+
+/* ==========================================================
+                    DESCRIPTION
+========================================================== */
+
+.message-text{
+
+    color:#64748B;
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+
+/* ==========================================================
+                    BUTTONS
+========================================================== */
+
+.message-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+.message-btn{
+
+    padding:14px 28px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.message-btn.primary{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+.message-btn.primary:hover{
+
+    background:#1D4ED8;
+
+}
+
+.message-btn.secondary{
+
+    border:2px solid #2563EB;
+
+    color:#2563EB;
+
+}
+
+.message-btn.secondary:hover{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+/* ==========================================================
+                    STATUS STRIP
+========================================================== */
+
+.status-strip{
+
+    width:100%;
+
+    height:8px;
+
+    border-radius:20px 20px 0 0;
+
+    margin:-50px -50px 40px;
+
+}
+
+/* Success */
+
+.success{
+
+    background:#22C55E;
+
+}
+
+/* Error */
+
+.error{
+
+    background:#EF4444;
+
+}
+
+/* Warning */
+
+.warning{
+
+    background:#F59E0B;
+
+}
+
+/* ==========================================================
+                    ANIMATION
+========================================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+                    RESPONSIVE
+========================================================== */
+
+@media(max-width:600px){
+
+.message-card{
+
+    padding:35px 25px;
+
+}
+
+.message-title{
+
+    font-size:28px;
+
+}
+
+.message-actions{
+
+    flex-direction:column;
+
+}
+
+.message-btn{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+}

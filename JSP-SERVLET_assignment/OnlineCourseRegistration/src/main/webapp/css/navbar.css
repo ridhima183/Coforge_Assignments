@@ -1,0 +1,425 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+/* ==========================================================
+                    COURSEHUB NAVBAR
+========================================================== */
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:80px;
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(12px);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 60px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+    z-index:1000;
+
+}
+
+/* ==========================================
+                LOGO
+========================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.logo a{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    letter-spacing:.5px;
+
+}
+
+.logo img{
+
+    width:42px;
+
+    height:42px;
+
+}
+
+/* ==========================================
+            NAVIGATION MENU
+========================================== */
+
+.nav-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+}
+
+.nav-menu li{
+
+    list-style:none;
+
+}
+
+.nav-menu li a{
+
+    position:relative;
+
+    color:#334155;
+
+    font-weight:500;
+
+    transition:.3s;
+
+    padding:8px 0;
+
+}
+
+.nav-menu li a:hover{
+
+    color:var(--primary);
+
+}
+
+/* Underline Animation */
+
+.nav-menu li a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:3px;
+
+    border-radius:20px;
+
+    background:var(--primary);
+
+    transition:.3s;
+
+}
+
+.nav-menu li a:hover::after{
+
+    width:100%;
+
+}
+
+/* Active Page */
+
+.nav-menu li a.active{
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+.nav-menu li a.active::after{
+
+    width:100%;
+
+}
+
+/* ==========================================
+            PROFILE SECTION
+========================================== */
+
+.profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.profile img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid var(--primary);
+
+}
+
+.profile-name{
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+/* ==========================================
+            USER DROPDOWN
+========================================== */
+
+.profile-dropdown{
+
+    position:relative;
+
+}
+
+.profile-dropdown-content{
+
+    position:absolute;
+
+    top:60px;
+
+    right:0;
+
+    width:220px;
+
+    background:white;
+
+    border-radius:12px;
+
+    box-shadow:0 12px 25px rgba(0,0,0,.12);
+
+    display:none;
+
+    overflow:hidden;
+
+}
+
+.profile-dropdown-content a{
+
+    display:block;
+
+    padding:14px 18px;
+
+    color:#334155;
+
+    transition:.3s;
+
+}
+
+.profile-dropdown-content a:hover{
+
+    background:#f8fafc;
+
+    color:var(--primary);
+
+}
+
+.profile-dropdown:hover .profile-dropdown-content{
+
+    display:block;
+
+}
+
+/* ==========================================
+            NOTIFICATION BADGE
+========================================== */
+
+.notification{
+
+    position:relative;
+
+}
+
+.notification-count{
+
+    position:absolute;
+
+    top:-8px;
+
+    right:-8px;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:#ef4444;
+
+    color:white;
+
+    font-size:11px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* ==========================================
+                SEARCH
+========================================== */
+
+.nav-search{
+
+    display:flex;
+
+    align-items:center;
+
+    background:#f1f5f9;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    width:280px;
+
+}
+
+.nav-search input{
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    width:100%;
+
+    margin-left:10px;
+
+    font-size:14px;
+
+}
+
+/* ==========================================
+                MOBILE MENU
+========================================== */
+
+.menu-toggle{
+
+    display:none;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================
+                RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+.navbar{
+
+    padding:0 25px;
+
+}
+
+.nav-search{
+
+    display:none;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.navbar{
+
+    flex-wrap:wrap;
+
+    height:auto;
+
+    padding:20px;
+
+}
+
+.logo{
+
+    width:100%;
+
+    justify-content:space-between;
+
+}
+
+.menu-toggle{
+
+    display:block;
+
+}
+
+.nav-menu{
+
+    width:100%;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+    margin-top:20px;
+
+}
+
+.profile{
+
+    width:100%;
+
+    margin-top:20px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.logo a{
+
+    font-size:24px;
+
+}
+
+.profile-name{
+
+    font-size:14px;
+
+}
+
+}

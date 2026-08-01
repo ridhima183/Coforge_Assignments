@@ -1,0 +1,200 @@
+@charset "UTF-8";
+/* ==========================================================
+                    EDIT COURSE
+========================================================== */
+
+.edit-course{
+
+    width:90%;
+    max-width:850px;
+    margin:40px auto;
+
+}
+
+.edit-course-card{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:40px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.edit-course-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.edit-course-header h1{
+
+    color:#2563EB;
+
+}
+
+.course-id{
+
+    background:#DBEAFE;
+
+    color:#2563EB;
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+}
+
+.edit-form{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+}
+
+.edit-form label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.edit-form input,
+.edit-form textarea,
+.edit-form select{
+
+    width:100%;
+
+    padding:15px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:12px;
+
+}
+
+.edit-form textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+.edit-form input:focus,
+.edit-form textarea:focus,
+.edit-form select:focus{
+
+    outline:none;
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+.action-buttons{
+
+    grid-column:1/-1;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+.update-btn{
+
+    background:#10B981;
+
+    color:white;
+
+    padding:14px 30px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
+
+.update-btn:hover{
+
+    background:#059669;
+
+}
+
+.delete-btn{
+
+    background:#EF4444;
+
+    color:white;
+
+    padding:14px 30px;
+
+    border-radius:10px;
+
+}
+
+.delete-btn:hover{
+
+    background:#DC2626;
+
+}
+
+.back-btn{
+
+    background:#64748B;
+
+    color:white;
+
+    padding:14px 30px;
+
+    border-radius:10px;
+
+}
+
+.back-btn:hover{
+
+    background:#475569;
+
+}
+
+@media(max-width:768px){
+
+.edit-form{
+
+    grid-template-columns:1fr;
+
+}
+
+.edit-course-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+}
+
+}

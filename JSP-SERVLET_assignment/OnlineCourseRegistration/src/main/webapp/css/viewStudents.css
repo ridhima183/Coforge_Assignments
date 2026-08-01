@@ -1,0 +1,231 @@
+@charset "UTF-8";
+
+/* ==========================================================
+                    VIEW STUDENTS
+========================================================== */
+
+.view-students{
+
+    width:95%;
+    max-width:1450px;
+    margin:40px auto;
+
+}
+
+/* Header */
+
+.students-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.students-header h1{
+
+    font-size:36px;
+
+    color:#1E293B;
+
+}
+
+.students-header p{
+
+    color:#64748B;
+
+}
+
+/* Search */
+
+.student-search{
+
+    width:350px;
+
+}
+
+.student-search input{
+
+    width:100%;
+
+    padding:15px;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+}
+
+.student-search input:focus{
+
+    outline:none;
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+
+}
+
+/* Table */
+
+.students-table{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.students-table table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.students-table thead{
+
+    background:#2563EB;
+
+}
+
+.students-table th{
+
+    color:white;
+
+    padding:18px;
+
+    text-align:left;
+
+}
+
+.students-table td{
+
+    padding:18px;
+
+    border-bottom:1px solid #E2E8F0;
+
+}
+
+.students-table tbody tr:hover{
+
+    background:#F8FAFC;
+
+}
+
+/* Student */
+
+.student-name{
+
+    font-weight:600;
+
+}
+
+.student-email{
+
+    color:#64748B;
+
+}
+
+/* Status */
+
+.student-status{
+
+    padding:7px 15px;
+
+    border-radius:25px;
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* Buttons */
+
+.view-btn{
+
+    background:#2563EB;
+
+    color:white;
+
+    padding:9px 16px;
+
+    border-radius:8px;
+
+}
+
+.delete-btn{
+
+    background:#EF4444;
+
+    color:white;
+
+    padding:9px 16px;
+
+    border-radius:8px;
+
+}
+
+.view-btn:hover{
+
+    background:#1D4ED8;
+
+}
+
+.delete-btn:hover{
+
+    background:#DC2626;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.students-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+.students-table{
+
+    overflow-x:auto;
+
+}
+
+.students-table table{
+
+    min-width:850px;
+
+}
+
+.student-search{
+
+    width:100%;
+
+}
+
+}

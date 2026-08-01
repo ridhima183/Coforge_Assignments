@@ -1,0 +1,503 @@
+@charset "UTF-8";
+
+/* ==========================================================
+                    MY COURSES PAGE
+========================================================== */
+
+.mycourses{
+
+    width:92%;
+    max-width:1400px;
+    margin:40px auto;
+
+}
+
+/* ==========================================================
+                    PAGE HEADER
+========================================================== */
+
+.mycourses-header{
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    color:white;
+
+    padding:40px;
+
+    border-radius:24px;
+
+    margin-bottom:35px;
+
+    box-shadow:0 18px 40px rgba(37,99,235,.25);
+
+}
+
+.mycourses-header h1{
+
+    color:white;
+
+    font-size:36px;
+
+    margin-bottom:10px;
+
+}
+
+.mycourses-header p{
+
+    color:#DBEAFE;
+
+}
+
+/* ==========================================================
+                    COURSE GRID
+========================================================== */
+
+.mycourse-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+
+    gap:30px;
+
+}
+
+/* ==========================================================
+                    COURSE CARD
+========================================================== */
+
+.mycourse-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.mycourse-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 22px 45px rgba(0,0,0,.14);
+
+}
+
+/* ==========================================================
+                    IMAGE
+========================================================== */
+
+.mycourse-image{
+
+    height:170px;
+
+    background:linear-gradient(135deg,#2563EB,#60A5FA);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:60px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+                    BODY
+========================================================== */
+
+.mycourse-body{
+
+    padding:25px;
+
+}
+
+.mycourse-body h3{
+
+    margin-bottom:10px;
+
+}
+
+.mycourse-body p{
+
+    color:#64748B;
+
+    margin-bottom:18px;
+
+}
+
+/* ==========================================================
+                    STATUS
+========================================================== */
+
+.status{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:25px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.status-enrolled{
+
+    background:#DBEAFE;
+
+    color:#2563EB;
+
+}
+
+.status-progress{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+}
+
+.status-completed{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+}
+
+/* ==========================================================
+                    PROGRESS BAR
+========================================================== */
+
+.progress{
+
+    margin-top:18px;
+
+}
+
+.progress-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+}
+
+.progress-bar{
+
+    width:100%;
+
+    height:10px;
+
+    background:#E2E8F0;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    background:linear-gradient(90deg,#10B981,#22C55E);
+
+}
+
+/* ==========================================================
+                    COURSE FOOTER
+========================================================== */
+
+.mycourse-footer{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+/* ==========================================================
+                CERTIFICATE BUTTON
+========================================================== */
+
+.certificate-btn{
+
+    background:#8B5CF6;
+
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.certificate-btn:hover{
+
+    background:#7C3AED;
+
+}
+
+/* ==========================================================
+                    REMOVE BUTTON
+========================================================== */
+
+.remove-btn{
+
+    background:#EF4444;
+
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.remove-btn:hover{
+
+    background:#DC2626;
+
+}
+
+/* ==========================================================
+                CONTINUE BUTTON
+========================================================== */
+
+.continue-btn{
+
+    background:#2563EB;
+
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.continue-btn:hover{
+
+    background:#1D4ED8;
+
+}
+
+/* ==========================================================
+                COURSE INFO
+========================================================== */
+
+.course-info{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+    margin:20px 0;
+
+}
+
+.info-item{
+
+    font-size:14px;
+
+    color:#475569;
+
+}
+
+/* ==========================================================
+                EMPTY STATE
+========================================================== */
+
+.empty-course{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:70px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+.empty-course img{
+
+    width:180px;
+
+    margin-bottom:20px;
+
+}
+
+.empty-course h2{
+
+    margin-bottom:15px;
+
+}
+
+.empty-course p{
+
+    margin-bottom:30px;
+
+}
+
+/* ==========================================================
+                TABLE STYLE
+========================================================== */
+
+.course-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+
+}
+
+.course-table th{
+
+    background:#2563EB;
+
+    color:white;
+
+    padding:18px;
+
+    text-align:left;
+
+}
+
+.course-table td{
+
+    padding:18px;
+
+    border-bottom:1px solid #E2E8F0;
+
+}
+
+.course-table tr:hover{
+
+    background:#F8FAFC;
+
+}
+
+/* ==========================================================
+                RESPONSIVE
+========================================================== */
+
+@media(max-width:900px){
+
+.mycourse-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.mycourses{
+
+    width:95%;
+
+}
+
+.mycourses-header{
+
+    padding:30px;
+
+}
+
+.mycourses-header h1{
+
+    font-size:30px;
+
+}
+
+.course-info{
+
+    grid-template-columns:1fr;
+
+}
+
+.mycourse-footer{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+.course-table{
+
+    display:block;
+
+    overflow-x:auto;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.mycourses-header{
+
+    padding:25px;
+
+}
+
+.mycourse-body{
+
+    padding:20px;
+
+}
+
+}

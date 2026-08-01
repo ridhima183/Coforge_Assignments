@@ -1,0 +1,170 @@
+@charset "UTF-8";
+/* ==========================================================
+                    ADD COURSE PAGE
+========================================================== */
+
+.add-course{
+
+    width:90%;
+    max-width:850px;
+    margin:40px auto;
+
+}
+
+.add-course-card{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:40px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.add-course-header{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.add-course-header h1{
+
+    color:#2563EB;
+
+    margin-bottom:10px;
+
+}
+
+.add-course-header p{
+
+    color:#64748B;
+
+}
+
+.course-form{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+}
+
+.full-width{
+
+    grid-column:1 / -1;
+
+}
+
+.course-form label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.course-form input,
+.course-form select,
+.course-form textarea{
+
+    width:100%;
+
+    padding:15px;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+}
+
+.course-form textarea{
+
+    min-height:130px;
+
+    resize:vertical;
+
+}
+
+.course-form input:focus,
+.course-form textarea:focus,
+.course-form select:focus{
+
+    outline:none;
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+.form-buttons{
+
+    grid-column:1/-1;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.save-btn{
+
+    background:#2563EB;
+
+    color:white;
+
+    padding:14px 28px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
+
+.save-btn:hover{
+
+    background:#1D4ED8;
+
+}
+
+.cancel-btn{
+
+    background:#EF4444;
+
+    color:white;
+
+    padding:14px 28px;
+
+    border-radius:10px;
+
+}
+
+.cancel-btn:hover{
+
+    background:#DC2626;
+
+}
+
+@media(max-width:768px){
+
+.course-form{
+
+    grid-template-columns:1fr;
+
+}
+
+}

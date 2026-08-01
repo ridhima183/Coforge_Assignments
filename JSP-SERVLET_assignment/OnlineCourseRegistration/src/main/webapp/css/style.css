@@ -1,0 +1,586 @@
+/* ==========================================================
+                    COURSEHUB LMS
+                GLOBAL STYLE SHEET
+========================================================== */
+
+/* Google Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================================
+                        RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#f8fafc;
+
+    color:#1e293b;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    line-height:1.6;
+}
+
+/* ==========================================================
+                    ROOT VARIABLES
+========================================================== */
+
+:root{
+
+    --primary:#2563EB;
+
+    --primary-dark:#1D4ED8;
+
+    --secondary:#0F172A;
+
+    --success:#10B981;
+
+    --danger:#EF4444;
+
+    --warning:#F59E0B;
+
+    --white:#FFFFFF;
+
+    --background:#F8FAFC;
+
+    --text:#1E293B;
+
+    --text-light:#64748B;
+
+    --border:#E2E8F0;
+
+    --radius:16px;
+
+    --shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+/* ==========================================================
+                        LINKS
+========================================================== */
+
+a{
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+/* ==========================================================
+                    MAIN CONTENT
+========================================================== */
+
+.main-content{
+
+    flex:1;
+
+    width:100%;
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:40px 25px;
+
+}
+
+.container{
+
+    width:100%;
+}
+
+/* ==========================================================
+                    TYPOGRAPHY
+========================================================== */
+
+h1{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+h2{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+h3{
+
+    font-size:24px;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+h4{
+
+    font-size:20px;
+
+    font-weight:600;
+
+}
+
+p{
+
+    color:var(--text-light);
+
+}
+
+/* ==========================================================
+                    BUTTONS
+========================================================== */
+
+button{
+
+    cursor:pointer;
+
+    border:none;
+
+    outline:none;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+.primary-btn{
+
+    display:inline-block;
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:14px 28px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.primary-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-3px);
+
+}
+
+.secondary-btn{
+
+    display:inline-block;
+
+    border:2px solid var(--primary);
+
+    color:var(--primary);
+
+    padding:14px 28px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
+
+.secondary-btn:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+.success-btn{
+
+    display:inline-block;
+
+    background:var(--success);
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+}
+
+.success-btn:hover{
+
+    opacity:.9;
+
+}
+
+.danger-btn{
+
+    display:inline-block;
+
+    background:var(--danger);
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+}
+
+.danger-btn:hover{
+
+    opacity:.9;
+
+}
+
+/* ==========================================================
+                    FORM
+========================================================== */
+
+.form-container{
+
+    width:480px;
+
+    margin:50px auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.form-header{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.form-header h2{
+
+    margin-bottom:10px;
+
+}
+
+.form-group{
+
+    margin-bottom:20px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+.form-group input,
+
+.form-group select,
+
+.form-group textarea{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+.form-group textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+.form-group input:focus,
+
+.form-group select:focus,
+
+.form-group textarea:focus{
+
+    outline:none;
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+.form-container button{
+
+    width:100%;
+
+    padding:15px;
+
+    background:var(--primary);
+
+    color:white;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+.form-container button:hover{
+
+    background:var(--primary-dark);
+
+}
+
+/* ==========================================================
+                    BADGES
+========================================================== */
+
+.badge{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:25px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.badge-success{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+}
+
+.badge-warning{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+}
+
+.badge-danger{
+
+    background:#FEE2E2;
+
+    color:#DC2626;
+
+}
+
+.badge-primary{
+
+    background:#DBEAFE;
+
+    color:#1D4ED8;
+
+}
+
+/* ==========================================================
+                    CARDS
+========================================================== */
+
+.card{
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    padding:25px;
+
+}
+
+/* ==========================================================
+                    UTILITIES
+========================================================== */
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.mt-1{
+
+    margin-top:10px;
+
+}
+
+.mt-2{
+
+    margin-top:20px;
+
+}
+
+.mt-3{
+
+    margin-top:30px;
+
+}
+
+.mt-4{
+
+    margin-top:40px;
+
+}
+
+.mb-1{
+
+    margin-bottom:10px;
+
+}
+
+.mb-2{
+
+    margin-bottom:20px;
+
+}
+
+.mb-3{
+
+    margin-bottom:30px;
+
+}
+
+.mb-4{
+
+    margin-bottom:40px;
+
+}
+
+/* ==========================================================
+                    ANIMATIONS
+========================================================== */
+
+.fade-up{
+
+    animation:fadeUp .6s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+                    RESPONSIVE
+========================================================== */
+
+@media(max-width:992px){
+
+.main-content{
+
+    padding:30px 20px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.form-container{
+
+    width:100%;
+
+}
+
+h1{
+
+    font-size:34px;
+
+}
+
+h2{
+
+    font-size:28px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.main-content{
+
+    padding:20px 15px;
+
+}
+
+}

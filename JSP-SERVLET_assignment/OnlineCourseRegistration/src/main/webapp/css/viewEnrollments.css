@@ -1,0 +1,251 @@
+@charset "UTF-8";
+
+/* ==========================================================
+                VIEW ENROLLMENTS
+========================================================== */
+
+.view-enrollments{
+
+    width:95%;
+    max-width:1450px;
+    margin:40px auto;
+
+}
+
+/* Header */
+
+.enrollment-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+
+}
+
+.enrollment-header h1{
+
+    color:#1E293B;
+
+    font-size:36px;
+
+}
+
+.enrollment-header p{
+
+    color:#64748B;
+
+}
+
+/* Filter */
+
+.enrollment-filter{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.enrollment-filter input,
+
+.enrollment-filter select{
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    border:1px solid #E2E8F0;
+
+}
+
+.enrollment-filter input:focus,
+
+.enrollment-filter select:focus{
+
+    outline:none;
+
+    border-color:#2563EB;
+
+}
+
+/* Table */
+
+.enrollment-table{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.enrollment-table table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.enrollment-table thead{
+
+    background:#2563EB;
+
+}
+
+.enrollment-table th{
+
+    color:white;
+
+    padding:18px;
+
+    text-align:left;
+
+}
+
+.enrollment-table td{
+
+    padding:18px;
+
+    border-bottom:1px solid #E2E8F0;
+
+}
+
+.enrollment-table tbody tr:hover{
+
+    background:#F8FAFC;
+
+}
+
+/* Status */
+
+.enrolled{
+
+    background:#DBEAFE;
+
+    color:#2563EB;
+
+    padding:7px 15px;
+
+    border-radius:25px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.progress{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+    padding:7px 15px;
+
+    border-radius:25px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.completed{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+    padding:7px 15px;
+
+    border-radius:25px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* Buttons */
+
+.edit-btn{
+
+    background:#10B981;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+}
+
+.delete-btn{
+
+    background:#EF4444;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+}
+
+.edit-btn:hover{
+
+    background:#059669;
+
+}
+
+.delete-btn:hover{
+
+    background:#DC2626;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.enrollment-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+}
+
+.enrollment-filter{
+
+    width:100%;
+
+    flex-direction:column;
+
+}
+
+.enrollment-table{
+
+    overflow-x:auto;
+
+}
+
+.enrollment-table table{
+
+    min-width:1000px;
+
+}
+
+}

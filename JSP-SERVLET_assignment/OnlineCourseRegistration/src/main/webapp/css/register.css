@@ -1,0 +1,475 @@
+@charset "UTF-8";
+
+/* ==========================================================
+                    REGISTER PAGE
+========================================================== */
+
+.register-page{
+
+    min-height:calc(100vh - 80px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px 20px;
+
+}
+
+/* ==========================================================
+                REGISTER CARD
+========================================================== */
+
+.register-card{
+
+    width:100%;
+
+    max-width:1200px;
+
+    background:white;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:1fr 1.2fr;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.10);
+
+}
+
+/* ==========================================================
+                LEFT PANEL
+========================================================== */
+
+.register-left{
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    color:white;
+
+    padding:60px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.register-left::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    top:-130px;
+
+    right:-90px;
+
+}
+
+.register-left::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.06);
+
+    bottom:-60px;
+
+    left:-60px;
+
+}
+
+.register-left h1{
+
+    color:white;
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.register-left p{
+
+    color:#DBEAFE;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ==========================================================
+                FEATURES
+========================================================== */
+
+.register-features{
+
+    margin-top:40px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.register-feature{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+}
+
+.register-feature i{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.18);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:18px;
+
+}
+
+/* ==========================================================
+                RIGHT PANEL
+========================================================== */
+
+.register-right{
+
+    padding:50px;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.register-form{
+
+    width:100%;
+
+}
+
+.register-form h2{
+
+    margin-bottom:8px;
+
+    font-size:34px;
+
+}
+
+.register-form p{
+
+    color:#64748B;
+
+    margin-bottom:35px;
+
+}
+
+/* ==========================================================
+                TWO COLUMN FORM
+========================================================== */
+
+.form-row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+}
+
+.form-group{
+
+    margin-bottom:20px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+.form-group input{
+
+    width:100%;
+
+    padding:15px;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.form-group input:focus{
+
+    outline:none;
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+
+}
+
+/* ==========================================================
+                PASSWORD STRENGTH
+========================================================== */
+
+.password-strength{
+
+    margin-top:8px;
+
+    height:8px;
+
+    border-radius:20px;
+
+    background:#E2E8F0;
+
+    overflow:hidden;
+
+}
+
+.password-strength span{
+
+    display:block;
+
+    height:100%;
+
+    width:60%;
+
+    background:#10B981;
+
+}
+
+/* ==========================================================
+                CHECKBOX
+========================================================== */
+
+.terms{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    margin:25px 0;
+
+    font-size:14px;
+
+    color:#64748B;
+
+}
+
+.terms input{
+
+    margin-top:4px;
+
+}
+
+/* ==========================================================
+                REGISTER BUTTON
+========================================================== */
+
+.register-btn{
+
+    width:100%;
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+    padding:16px;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.register-btn:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================================================
+                LOGIN LINK
+========================================================== */
+
+.login-link{
+
+    text-align:center;
+
+    margin-top:25px;
+
+}
+
+.login-link a{
+
+    color:#2563EB;
+
+    font-weight:600;
+
+}
+
+/* ==========================================================
+                ANIMATION
+========================================================== */
+
+.register-card{
+
+    animation:fadeRegister .6s ease;
+
+}
+
+@keyframes fadeRegister{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+                RESPONSIVE
+========================================================== */
+
+@media(max-width:992px){
+
+.register-card{
+
+    grid-template-columns:1fr;
+
+}
+
+.register-left{
+
+    display:none;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.register-right{
+
+    padding:35px;
+
+}
+
+.form-row{
+
+    grid-template-columns:1fr;
+
+}
+
+.register-form h2{
+
+    font-size:28px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.register-page{
+
+    padding:20px;
+
+}
+
+.register-right{
+
+    padding:25px;
+
+}
+
+}
